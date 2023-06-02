@@ -1,0 +1,27 @@
+[
+    {
+        "model": "vts.gender",
+        "fields": {
+            "name": "male"
+        }
+    },
+    {
+        "model": "vts.gender",
+        "fields": {
+            "name": "female"
+        }
+    },
+    {
+        "model": "vts.role",
+        "fields": {
+            "name": "admin"
+        }
+    },
+    {
+        "model": "vts.role",
+        "fields": {
+            "name": "visitor"
+        }
+    }
+  ]
+  
