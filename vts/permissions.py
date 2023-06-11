@@ -13,11 +13,6 @@ class HasOrganization(BasePermission):
             return True
         return False
 
-class CustomObjectPermission(BasePermission):
-    def has_object_permission(self, request, view, obj):
-        # Ваша логика проверки разрешений для конкретного объекта
-        return True  # Или False
-
 class IsOwnerPermission(BasePermission):
     def has_object_permission(self, request, view, obj):
         return obj.owner == request.user

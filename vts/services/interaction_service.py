@@ -45,22 +45,6 @@ def get_interaction_list_by_id(id, request):
         return Response(interaction_serializer.data, status.HTTP_204_NO_CONTENT)
     return Response(interaction_serializer.data, status.HTTP_200_OK)
 
-# def get_interaction_full_list(request):
-#     organization_id = request.service.organization_id
-#     interactions = Interaction.objects.filter(organization_id=organization_id)
-#     interaction_serializer = InteractionSerializer(interactions, many = True)
-#     if len(interaction_serializer.data) == 0:
-#         return Response(interaction_serializer.data, status.HTTP_204_NO_CONTENT)
-#     return Response(interaction_serializer.data, status.HTTP_200_OK)
-
-# def get_interaction_user_list(request):
-#     customuser_id = request.user.id
-#     interactions = Interaction.objects.filter(customuser_id=customuser_id)
-#     interaction_serializer = InteractionSerializer(interactions, many = True)
-#     if len(interaction_serializer.data) == 0:
-#         return Response(interaction_serializer.data, status.HTTP_204_NO_CONTENT)
-#     return Response(interaction_serializer.data, status.HTTP_200_OK)
-
 def create_interaction(data):
     try:
         customuser = CustomUser.objects.get(pk=data['customuser_id'])

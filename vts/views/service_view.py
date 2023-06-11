@@ -22,6 +22,11 @@ def service_rud(request, service_id):
         return update_service(service_id, JSONParser().parse(request), request)
     elif request.method == 'DELETE':
        return delete_service(service_id, request)
+
+@api_view(['GET'])
+def service_by_service_id(request, service_id):
+    if request.method == 'GET':
+        return get_service_by_service_id(service_id)
     
 @api_view(['GET'])
 @permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])

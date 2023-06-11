@@ -2,6 +2,7 @@ from rest_framework import serializers
 from ..models.organization import Organization
 
 class OrganizationSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=100)
     address = serializers.CharField(max_length=100)
     email = serializers.EmailField()

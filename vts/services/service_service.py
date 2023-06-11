@@ -13,6 +13,14 @@ def get_service(service_id, request):
         return Response({'message': str(e)}, status.HTTP_204_NO_CONTENT)
     return Response(serializer.data, status.HTTP_200_OK)
 
+def get_service_by_service_id(service_id):
+    try:
+        instance = Service.objects.get(pk=service_id)
+        serializer = ServiceSerializer(instance)
+    except Exception as e:
+        return Response({'message': str(e)}, status.HTTP_204_NO_CONTENT)
+    return Response(serializer.data, status.HTTP_200_OK)
+
 def get_services(request):
     organization_id = request.user.organization_id
     services = Service.objects.filter(organization_id=organization_id)

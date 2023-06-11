@@ -1,0 +1,19 @@
+{% extends 'main/frame.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/header.html' %}
+<h1>Список браслетів</h1>
+<table id="bracelets-table">
+  <thead>
+    <tr>
+      <th>RFID</th>
+      <th>Статус</th>
+      <th>Дата активації</th>
+      <th>Дата деактивації</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<script src="{% static 'js/bracelets.js' %}"></script>
+{% include 'partials/footer.html' %}
+{% endblock %}

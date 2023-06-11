@@ -1,0 +1,10 @@
+{% extends 'main/frame.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/header.html' %}
+<div>
+    <h2 id="name">Hi, </h2>
+</div>
+<script src="{% static 'js/zones.js' %}"></script>
+{% include 'partials/footer.html' %}
+{% endblock %}

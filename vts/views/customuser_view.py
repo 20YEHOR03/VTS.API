@@ -5,6 +5,10 @@ from rest_framework.parsers import JSONParser
 from ..services.customuser_service import *
 from ..permissions import IsAdminCustomUser, HasOrganization
 
+from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
+
 @api_view(['POST'])
 def register(request):
     return register_customuser(JSONParser().parse(request))
