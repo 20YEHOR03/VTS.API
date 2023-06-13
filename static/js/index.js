@@ -2,7 +2,7 @@ let token = localStorage.getItem('token');
 let userName; // Приклад: ім'я користувача змінною
 let nameElement = document.getElementById("name");
 
-fetch("api/customuser/get-info/", {
+fetch("/api/customuser/get-info/", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

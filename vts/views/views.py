@@ -1,28 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
-from django.http import HttpResponse
 
 # Create your views here.
 def login_view(request):
-    if request.method == 'POST':
-        # Отримати дані форми авторизації з POST-запиту
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-
-        # Перевірка введених даних авторизації
-        user = authenticate(request, email=email, password=password)
-        if user is not None:
-            # Успішна авторизація, виконати вхід користувача
-            login(request, user)
-            return HttpResponse('Успішний вхід!')
-        else:
-            # Помилка авторизації, повернути повідомлення про помилку
-            return HttpResponse('Помилка авторизації!')
-
-    else:
-        # Відобразити сторінку авторизації (шаблон форми авторизації)
-        return render(request, 'main/login.html')
+    return render(request, 'main/login.html')
     
 def register_view(request):
     return render(request, 'main/register.html')
@@ -33,11 +14,29 @@ def index_view(request):
 def bracelets_view(request):
     return render(request, 'main/bracelets.html')
 
-def services_view(request):
-    return render(request, 'main/services.html')
+def bracelet_add_view(request):
+    return render(request, 'main/bracelet-add.html')
+
+def bracelet_edit_view(request, bracelet_id):
+    return render(request, 'main/bracelet-edit.html', {'bracelet_id': bracelet_id})
 
 def zones_view(request):
     return render(request, 'main/zones.html')
+
+def zone_add_view(request):
+    return render(request, 'main/zone-add.html')
+
+def zone_edit_view(request, zone_id):
+    return render(request, 'main/zone-edit.html', {'zone_id': zone_id})
+
+def services_view(request):
+    return render(request, 'main/services.html')
+
+def service_add_view(request):
+    return render(request, 'main/service-add.html')
+
+def service_edit_view(request, service_id):
+    return render(request, 'main/service-edit.html', {'service_id': service_id})
 
 def settings_view(request):
     return render(request, 'main/settings.html')
@@ -48,5 +47,8 @@ def statistics_view(request):
 def visitors_view(request):
     return render(request, 'main/visitors.html')
 
-def zones_view(request):
-    return render(request, 'main/zones.html')
+def visitor_add_view(request):
+    return render(request, 'main/visitor-add.html')
+
+def visitor_edit_view(request, customuser_id):
+    return render(request, 'main/visitor-edit.html', {'customuser_id': customuser_id})

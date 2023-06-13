@@ -1,0 +1,29 @@
+{% extends 'main/frame.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/header.html' %}
+<h1>Bracelet</h1>
+<div id="add-modal">
+    <div class="form-container">
+        <form id="add-bracelet-form" method="post" action="{% url 'bracelet_add_view' %}">
+            {% csrf_token %}
+            <h2 id="modal-title">Add bracelet</h2>
+            <label for="rfid-input">RFID:</label>
+            <input type="text" id="rfid-input" required>
+            <label for="status-select">Status:</label>
+            <select id="status-select">
+                <option value="True">Active</option>
+                <option value="False">Unactive</option>
+            </select>
+            <label for="activation-date-input">Activation date:</label>
+            <input type="date" id="activation-date-input" required>
+            <label for="deactivation-date-input">Deactivation date:</label>
+            <input type="date" id="deactivation-date-input" required>
+            <button id="save-button">Create</button>
+        </form>
+        <button id="cancel-button">Cancel</button>
+    </div>
+</div>
+<script src="{% static 'js/bracelet-add.js' %}"></script>
+{% include 'partials/footer.html' %}
+{% endblock %}

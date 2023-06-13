@@ -2,18 +2,14 @@
 {% load static %}
 {% block content %}
 {% include 'partials/header.html' %}
-<h1>Список браслетів</h1>
-<table id="bracelets-table">
-  <thead>
-    <tr>
-      <th>RFID</th>
-      <th>Статус</th>
-      <th>Дата активації</th>
-      <th>Дата деактивації</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
+<h1>Bracelets</h1>
+
+<button id="add-button">Add bracelet</button>
+
+<div id="bracelets-container"></div>
+
+<div id="message-container"></div>
+
 <script src="{% static 'js/bracelets.js' %}"></script>
 {% include 'partials/footer.html' %}
 {% endblock %}

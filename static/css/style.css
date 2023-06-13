@@ -19,3 +19,59 @@
 .menu-item a:hover {
     color: #ff0000;
 }
+
+.item-card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #f9f9f9;
+  }
+
+  .item-card h3 {
+    margin-top: 0;
+  }
+
+  .item-card p {
+    margin-bottom: 8px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .button-container button {
+    margin-left: 8px;
+  }
+
+  .message {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+  }
+
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .form-container label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .form-container input[type="text"],
+  .form-container input[type="date"],
+  .form-container input[type="email"],
+  .form-container input[type="password"],
+  .form-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+
+  .form-container button {
+    display: block;
+    margin-top: 16px;
+  }

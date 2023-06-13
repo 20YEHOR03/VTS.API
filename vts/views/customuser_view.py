@@ -28,6 +28,31 @@ def get_actual_visitors(request):
     return get_visitors_actual(request)
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])
+def get_all_visitors(request):
+    return get_visitors(request)
+
+@api_view(['GET'])
 @permission_classes([IsAuthenticated & HasOrganization])
 def get_customuser_info(request):
-    return get_info(request)
+    return get_own_info(request)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])
+def get_visitor_info(request, customuser_id):
+    return get_info(customuser_id, request)
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated & HasOrganization])
+def update_customuser_info(request):
+    return update_customuser(JSONParser().parse(request), request)
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])
+def update_visitor_info(request, customuser_id):
+    return update_customuser(customuser_id, JSONParser().parse(request), request)
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])
+def deactivate_visitor_info(request, customuser_id):
+    return deactivate_customuser(customuser_id, JSONParser().parse(request), request)

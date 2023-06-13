@@ -4,6 +4,7 @@ from ..models.customuser import CustomUser
 from ..models.service import Service
 
 class InteractionSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     customuser_id = serializers.PrimaryKeyRelatedField(queryset=CustomUser.objects.all(), source='customuser')
     service_id = serializers.PrimaryKeyRelatedField(queryset=Service.objects.all(), source='service')
     interaction_datetime = serializers.DateTimeField()

@@ -1,7 +1,7 @@
 {% extends 'main/frame.html' %}
 {% load static %}
 {% block content %}
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+<div class="form-container">
     <form id="registration-form" method="post">
         {% csrf_token %}
         <h2 style="text-align: center;">Registration</h2>
@@ -14,6 +14,7 @@
         <input type="text" name="customuser_age" id="customuser_age" required><br><br>
         <label for="customuser_gender">Last name:</label>
         <select name="customuser_gender" id="customuser_gender">
+            <option hidden selected>Select gender</option>
             <option value="1">Male</option>
             <option value="2">Female</option>
         </select>

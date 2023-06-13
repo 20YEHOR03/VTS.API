@@ -2,6 +2,7 @@ from rest_framework import serializers
 from ..models import Bracelet, CustomUser, Organization
 
 class BraceletSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     rfid = serializers.CharField(max_length=100)
     status = serializers.BooleanField()
     activation_date = serializers.DateField()
@@ -21,6 +22,6 @@ class BraceletSerializer(serializers.Serializer):
         instance.activation_date = validated_data.get('activation_date', instance.activation_date)
         instance.deactivation_date = validated_data.get('deactivation_date', instance.deactivation_date)
         instance.customuser_id = validated_data.get('customuser_id', instance.customuser_id)
-        instance.organization_id = validated_data.get('organization_id', instance.organization_id)
+        instance.organization_id = validated_data.get('organization', instance.organization_id)
         instance.save()
         return instance

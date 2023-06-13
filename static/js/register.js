@@ -14,7 +14,7 @@ document.getElementById('registration-form').addEventListener('submit', function
     const organization_phone = document.getElementById('organization_phone').value;
 
     // Відправити POST-запит на сервер для створення організації
-    fetch("api/organization/", {
+    fetch("/api/organization/", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ document.getElementById('registration-form').addEventListener('submit', function
 
         // Відправити POST-запит на сервер для створення користувача з ID організації
 
-        fetch("api/customuser/register/", {
+        fetch("/api/customuser/register/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

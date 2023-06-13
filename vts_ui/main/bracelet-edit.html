@@ -1,0 +1,33 @@
+{% extends 'main/frame.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/header.html' %}
+<h1>Bracelet</h1>
+<div id="edit-modal">
+    <div class="form-container">
+        <form id="edit-bracelet-form" method="patch">
+            {% csrf_token %}
+            <h2 id="modal-title">Edit bracelet</h2>
+            <label for="rfid-input">RFID:</label>
+            <input type="text" id="rfid-input" required>
+            <label for="status-select">Status:</label>
+            <select id="status-select">
+                <option value="true">Active</option>
+                <option value="false">Unactive</option>
+            </select>
+            <label for="activation-date-input">Activation date:</label>
+            <input type="date" id="activation-date-input" required>
+            <label for="deactivation-date-input">Deactivation date:</label>
+            <input type="date" id="deactivation-date-input" required>
+            <label for="customuser-select">Deactivation date:</label>
+            <select id="customuser-select">
+                <option>No user</option>
+            </select>
+            <button id="save-button">Save</button>
+        </form>
+        <button id="cancel-button">Cancel</button>
+    </div>
+</div>
+<script src="{% static 'js/bracelet-edit.js' %}"></script>
+{% include 'partials/footer.html' %}
+{% endblock %}

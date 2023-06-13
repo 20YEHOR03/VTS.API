@@ -2,9 +2,14 @@
 {% load static %}
 {% block content %}
 {% include 'partials/header.html' %}
-<div>
-    <h2 id="name">Hi, </h2>
-</div>
-<script src="{% static 'js/index.js' %}"></script>
+<h1>Visitors</h1>
+
+<button id="add-button">Add visitor</button>
+
+<div id="visitors-container"></div>
+
+<div id="message-container"></div>
+
+<script src="{% static 'js/visitors.js' %}"></script>
 {% include 'partials/footer.html' %}
 {% endblock %}

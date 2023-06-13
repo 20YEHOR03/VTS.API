@@ -4,7 +4,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    fetch("api/customuser/login/", {
+    fetch("/api/customuser/login/", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     .then(data => {
         const token  = data.token;
         localStorage.setItem('token', token);
-        window.location.href = "index";
+        window.location.href = "/index/";
     })
     .catch(error => {
       console.error('Error:', error);

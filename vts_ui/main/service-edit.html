@@ -1,0 +1,49 @@
+{% extends 'main/frame.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/header.html' %}
+<h1>Service</h1>
+<div id="edit-modal">
+    <div class="form-container">
+        <form id="edit-service-form" method="patch">
+            {% csrf_token %}
+            <h2 id="modal-title">Edit service</h2>
+            <label for="name-input">Name:</label>
+            <input type="text" id="name-input" required>
+            <label for="description-input">Description:</label>
+            <input type="text" id="description-input" required>
+            <label for="min-age-input">Minimum age:</label>
+            <input type="text" id="min-age-input" required>
+            <label for="zone-select">Zone:</label>
+            <select id="zone-select">
+            </select>
+            <label for="allowed-genders">Allowed genders:</label>
+            <div id="allowed-genders">
+                <div class="checkbox">
+                    <input type="checkbox" id="gender_1" name="gender_1" value="1">
+                    <label for="gender_1">Male</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="gender_2" name="gender_2" value="2">
+                    <label for="gender_2">Female</label>
+                </div>
+            </div>
+            <label for="allowed-genders">Allowed roles:</label>
+            <div id="allowed-roles">
+                <div class="checkbox">
+                    <input type="checkbox" id="role_1" name="role_1" value="1">
+                    <label for="role_1">Admin</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="role_2" name="role_2" value="2">
+                    <label for="role_2">Visitor</label>
+                </div>
+            </div>
+            <button id="save-button">Save</button>
+        </form>
+        <button id="cancel-button">Cancel</button>
+    </div>
+</div>
+<script src="{% static 'js/service-edit.js' %}"></script>
+{% include 'partials/footer.html' %}
+{% endblock %}

@@ -6,6 +6,7 @@ from ..models.gender import Gender
 from ..models.role import Role
 
 class CustomUserSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     email = serializers.EmailField()
     password = serializers.CharField(max_length=30)
     first_name = serializers.CharField(max_length=30)
@@ -27,16 +28,17 @@ class CustomUserSerializer(serializers.Serializer):
         instance.password = validated_data.get('password', instance.password)
         instance.first_name = validated_data.get('first_name', instance.first_name)
         instance.last_name = validated_data.get('last_name', instance.last_name)
-        instance.gender_id = validated_data.get('gender_id', instance.gender_id)
+        instance.gender_id = validated_data.get('gender', instance.gender_id)
         instance.age = validated_data.get('age', instance.age)
         instance.is_active = validated_data.get('is_active', instance.is_active)
         instance.is_staff = validated_data.get('is_staff', instance.is_staff)
-        instance.role_id = validated_data.get('role_id', instance.role_id)
-        instance.organization_id = validated_data.get('organization_id', instance.organization_id)
+        instance.role_id = validated_data.get('role', instance.role_id)
+        instance.organization_id = validated_data.get('organization', instance.organization_id)
         instance.save()
         return instance
 
 class SafeCustomUserSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     email = serializers.EmailField()
     first_name = serializers.CharField(max_length=30)
     last_name = serializers.CharField(max_length=30)

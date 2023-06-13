@@ -20,4 +20,12 @@
     <div class="menu-item">
         <a href="{% url 'settings_view' %}">Settings</a>
     </div>
+    <div class="menu-item">
+        <a href="{% url 'login_view' %}" onclick="logout()">Logout</a>
+    </div>
 </div>
+<script>
+    function logout() {
+        localStorage.removeItem('token');
+    }
+</script>

@@ -2,6 +2,7 @@ from rest_framework import serializers
 from ..models import Service, Gender, Organization, Role, Zone
 
 class ServiceSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=100)
     description = serializers.CharField(allow_null=True)
     minimum_age = serializers.IntegerField(default=0)
@@ -19,10 +20,13 @@ class ServiceSerializer(serializers.Serializer):
         return service
 
     def update(self, instance, validated_data):
-        allowed_genders_data = [role.id for role in validated_data.pop('allowed_genders', [])]
+        print(validated_data)
+        allowed_genders_data = [gender.id for gender in validated_data.pop('allowed_genders', [])]
         allowed_roles_data = [role.id for role in validated_data.pop('allowed_roles', [])]
-        instance.organization_id = validated_data.get('organization_id', instance.organization_id)
-        instance.zone_id = validated_data.get('zone_id', instance.zone_id)
+        instance.organization_id = validated_data.get('organization', instance.organization_id)
+        print(instance.zone_id)
+        instance.zone_id = validated_data.get('zone', instance.zone_id)
+        print(instance.zone_id)
         instance.name = validated_data.get('name', instance.name)
         instance.description = validated_data.get('description', instance.description)
         instance.minimum_age = validated_data.get('minimum_age', instance.minimum_age)
