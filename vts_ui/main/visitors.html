@@ -2,14 +2,12 @@
 {% load static %}
 {% block content %}
 {% include 'partials/header.html' %}
-<h1>Visitors</h1>
-
-<button id="add-button">Add visitor</button>
-
-<div id="visitors-container"></div>
-
-<div id="message-container"></div>
-
+<div class="content">
+    <h1>Visitors</h1>
+    <button class="button" id="add-button">Add visitor</button>
+    <div id="visitors-container"></div>
+    <div id="message-container"></div>
+</div>
 <script src="{% static 'js/visitors.js' %}"></script>
 {% include 'partials/footer.html' %}
 {% endblock %}

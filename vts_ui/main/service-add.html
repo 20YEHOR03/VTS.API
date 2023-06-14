@@ -2,43 +2,45 @@
 {% load static %}
 {% block content %}
 {% include 'partials/header.html' %}
-<h1>Service</h1>
-<div id="add-modal">
-    <div class="form-container">
-        <form id="add-service-form" method="post" action="{% url 'service_add_view' %}">
-            {% csrf_token %}
-            <h2 id="modal-title">Add service</h2>
-            <label for="name-input">Name:</label>
-            <input type="text" id="name-input" required>
-            <label for="description-input">Description:</label>
-            <input type="text" id="description-input" required>
-            <label for="min-age-input">Minimum age:</label>
-            <input type="text" id="min-age-input" required>
-            <label for="zone-select">Zone:</label>
-            <select id="zone-select">
-                <option hidden selected>Select zone</option>
-            </select>
-            <label for="checkbox">Allowed genders:</label>
-            <div class="checkbox">
-                <input type="checkbox" id="gender_1" name="gender_1" checked>
-                <label for="gender_1">Male</label>
-            </div>
-            <div class="checkbox">
-                <input type="checkbox" id="gender_2" name="gender_2" checked>
-                <label for="gender_2">Female</label>
-            </div>
-            <label for="checkbox">Allowed roles:</label>
-            <div class="checkbox">
-                <input type="checkbox" id="role_1" name="role_1" checked>
-                <label for="role_1">Admin</label>
-            </div>
-            <div class="checkbox">
-                <input type="checkbox" id="role_2" name="role_2" checked>
-                <label for="role_2">Visitor</label>
-            </div>
-            <button id="save-button">Create</button>
-        </form>
-        <button id="cancel-button">Cancel</button>
+<div class="content">
+    <h1>Service</h1>
+    <div id="add-modal">
+        <div class="form-container">
+            <form id="add-service-form" method="post" action="{% url 'service_add_view' %}">
+                {% csrf_token %}
+                <h2 id="modal-title">Add service</h2>
+                <label for="name-input">Name:</label>
+                <input type="text" id="name-input" required>
+                <label for="description-input">Description:</label>
+                <input type="text" id="description-input" required>
+                <label for="min-age-input">Minimum age:</label>
+                <input type="text" id="min-age-input" required>
+                <label for="zone-select">Zone:</label>
+                <select id="zone-select">
+                    <option hidden selected>Select zone</option>
+                </select>
+                <label for="checkbox">Allowed genders:</label>
+                <div class="checkbox">
+                    <input type="checkbox" id="gender_1" name="gender_1" checked>
+                    <label for="gender_1">Male</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="gender_2" name="gender_2" checked>
+                    <label for="gender_2">Female</label>
+                </div>
+                <label for="checkbox">Allowed roles:</label>
+                <div class="checkbox">
+                    <input type="checkbox" id="role_1" name="role_1" checked>
+                    <label for="role_1">Admin</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="role_2" name="role_2" checked>
+                    <label for="role_2">Visitor</label>
+                </div>
+                <button class="button" id="save-button">Create</button>
+            </form>
+            <button class="button" id="cancel-button">Cancel</button>
+        </div>
     </div>
 </div>
 <script src="{% static 'js/service-add.js' %}"></script>

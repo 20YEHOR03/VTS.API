@@ -2,19 +2,21 @@
 {% load static %}
 {% block content %}
 {% include 'partials/header.html' %}
-<h1>Zone</h1>
-<div id="edit-modal">
-    <div class="form-container">
-        <form id="edit-zone-form" method="patch">
-            {% csrf_token %}
-            <h2 id="modal-title">Edit zone</h2>
-            <label for="name-input">Name:</label>
-            <input type="text" id="name-input" required>
-            <label for="description-input">Description:</label>
-            <input type="text" id="description-input" required>
-            <button id="save-button">Save</button>
-        </form>
-        <button id="cancel-button">Cancel</button>
+<div class="content">
+    <h1>Zone</h1>
+    <div id="edit-modal">
+        <div class="form-container">
+            <form id="edit-zone-form" method="patch">
+                {% csrf_token %}
+                <h2 id="modal-title">Edit zone</h2>
+                <label for="name-input">Name:</label>
+                <input type="text" id="name-input" required>
+                <label for="description-input">Description:</label>
+                <input type="text" id="description-input" required>
+                <button class="button" id="save-button">Save</button>
+            </form>
+            <button class="button" id="cancel-button">Cancel</button>
+        </div>
     </div>
 </div>
 <script src="{% static 'js/zone-edit.js' %}"></script>

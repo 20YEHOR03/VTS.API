@@ -2,7 +2,7 @@ var token = localStorage.getItem('token');
 var addModal = document.getElementById("add-modal");
 var saveButton = document.getElementById("save-button");
 var cancelButton = document.getElementById("cancel-button");
-const date = new Date().toLocaleDateString();
+const date = new Date().toISOString().split('T')[0];
 document.getElementById("activation-date-input").value = date;
 document.getElementById("deactivation-date-input").value = date;
 

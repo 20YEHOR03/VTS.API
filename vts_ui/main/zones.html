@@ -2,14 +2,12 @@
 {% load static %}
 {% block content %}
 {% include 'partials/header.html' %}
-<h1>Zones</h1>
-
-<button id="add-button">Add zone</button>
-
-<div id="zones-container"></div>
-
-<div id="message-container"></div>
-
+<div class="content">
+    <h1>Zones</h1>
+    <button class="button" id="add-button">Add zone</button>
+    <div id="zones-container"></div>
+    <div id="message-container"></div>
+</div>
 <script src="{% static 'js/zones.js' %}"></script>
 {% include 'partials/footer.html' %}
 {% endblock %}

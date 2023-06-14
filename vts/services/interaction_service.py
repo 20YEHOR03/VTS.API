@@ -61,7 +61,7 @@ def get_interaction_statistics(request):
             data.append(filter_interactions.count())
             labels.append(zone.name)
     elif request.path.split("?")[0] == f'/api/interaction/get-services-statistics':
-        all_services = Service.objects.filter(id__in=zone_ids)
+        all_services = Service.objects.filter(zone_id__in=zone_ids)
         service_ids = all_services.values('id')
         for service_id in service_ids:
             interactions = Interaction.objects.filter(service_id=service_id['id'])

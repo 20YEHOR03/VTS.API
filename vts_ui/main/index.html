@@ -2,10 +2,12 @@
 {% load static %}
 {% block content %}
 {% include 'partials/header.html' %}
-<h2 id="name">Hi, </h2>
-<div id="report-content">
+<div class="content">
+    <h2 id="name">Hi, </h2>
+    <div id="report-content">
+    </div>
+    <button class="button" onclick="generateReport()">Create report</button>
 </div>
-<button class="menu-item" onclick="generateReport()">Create report</button >
 <script src="{% static 'js/index.js' %}"></script>
 {% include 'partials/footer.html' %}
 {% endblock %}
