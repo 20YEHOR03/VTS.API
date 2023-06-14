@@ -2,7 +2,7 @@ from ..models.interaction import Interaction
 from ..serializers.interaction_serializer import InteractionSerializer, SafeInteractionSerializer
 from rest_framework import status
 from rest_framework.response import Response
-from ..models import CustomUser, Service
+from ..models import *
 
 def get_interaction(interaction_id, request):
     try:
@@ -44,6 +44,47 @@ def get_interaction_list_by_id(id, request):
     if len(interaction_serializer.data) == 0:
         return Response(interaction_serializer.data, status.HTTP_204_NO_CONTENT)
     return Response(interaction_serializer.data, status.HTTP_200_OK)
+
+def get_interaction_statistics(request):
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+    labels = []
+    data = []
+    organization_id = request.user.organization_id
+    all_zones = Zone.objects.filter(organization_id=organization_id)
+    zone_ids = all_zones.values('id')
+    if request.path.split("?")[0] == f'/api/interaction/get-zones-statistics':
+        for zone_id in zone_ids:
+            interactions = Interaction.objects.filter(service__zone_id=zone_id['id'])
+            filter_interactions = interactions.filter(interaction_datetime__range=[start_date, end_date])
+            zone = Zone.objects.get(pk=zone_id['id'])
+            data.append(filter_interactions.count())
+            labels.append(zone.name)
+    elif request.path.split("?")[0] == f'/api/interaction/get-services-statistics':
+        all_services = Service.objects.filter(id__in=zone_ids)
+        service_ids = all_services.values('id')
+        for service_id in service_ids:
+            interactions = Interaction.objects.filter(service_id=service_id['id'])
+            filter_interactions = interactions.filter(interaction_datetime__range=[start_date, end_date])
+            service = Service.objects.get(pk=service_id['id'])
+            data.append(filter_interactions.count())
+            labels.append(service.name)
+        #interactions = Interaction.objects.filter(service_ids)
+    #if start_date and end_date:
+        #filter_interactions = interactions.filter(interaction_datetime__range=[start_date, end_date])
+
+    # labels = ['Zone 1', 'Zone 2', 'Zone 3']  # мітки для осі X
+    # data = [10, 20, 15]  # дані для осі Y (кількість взаємодій)
+
+    # Повернення даних у форматі JSON
+    response_data = {
+        'labels': labels,
+        'data': data
+    }
+
+    # if len(interaction_serializer.data) == 0:
+    #     return Response(response_data, status.HTTP_204_NO_CONTENT)
+    return Response(response_data, status.HTTP_200_OK)
 
 def create_interaction(data):
     try:

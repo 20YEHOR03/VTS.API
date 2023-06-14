@@ -17,9 +17,9 @@
     <div class="menu-item">
         <a href="{% url 'statistics_view' %}">Statistics</a>
     </div>
-    <div class="menu-item">
+    {% comment %} <div class="menu-item">
         <a href="{% url 'settings_view' %}">Settings</a>
-    </div>
+    </div> {% endcomment %}
     <div class="menu-item">
         <a href="{% url 'login_view' %}" onclick="logout()">Logout</a>
     </div>

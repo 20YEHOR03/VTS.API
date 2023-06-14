@@ -33,6 +33,18 @@ def interaction_get_zone_list(request, zone_id):
 def interaction_get_service_list(request, service_id):
     if request.method == 'GET':
         return get_interaction_list_by_id(service_id, request)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])
+def interaction_get_zones_statistics(request):
+    if request.method == 'GET':
+        return get_interaction_statistics(request)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])
+def interaction_get_services_statistics(request):
+    if request.method == 'GET':
+        return get_interaction_statistics(request)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])

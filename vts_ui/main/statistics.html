@@ -3,8 +3,25 @@
 {% block content %}
 {% include 'partials/header.html' %}
 <div>
-    <h2 id="name">Hi, </h2>
+    <h2>Statistics</h2>
+    <!-- Add date inputs and statistic selection here -->
 </div>
-<script src="{% static 'js/index.js' %}"></script>
+<div>
+    <form id="statisticsForm">
+        <!-- Додайте поля для вводу дат та вибору статистики -->
+        <!-- Наприклад, поля для вводу дат start_date та end_date, а також вибір зони або сервісу -->
+        <input type="date" id="start_date" name="start_date">
+        <input type="date" id="end_date" name="end_date">
+        <select id="statisticsType" name="statisticsType">
+        <option value="get-services-statistics">Zone</option>
+        <option value="get-zones-statistics">Service</option>
+        </select>
+        <button type="submit">Generate</button>
+    </form>
+</div>
+<div>
+    <canvas id="chart"></canvas>
+</div>
+<script src="{% static 'js/statistics.js' %}"></script>
 {% include 'partials/footer.html' %}
 {% endblock %}
