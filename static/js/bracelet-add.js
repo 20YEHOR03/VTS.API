@@ -2,8 +2,9 @@ var token = localStorage.getItem('token');
 var addModal = document.getElementById("add-modal");
 var saveButton = document.getElementById("save-button");
 var cancelButton = document.getElementById("cancel-button");
-const date = new Date();
+const date = new Date().toLocaleDateString();
 document.getElementById("activation-date-input").value = date;
+document.getElementById("deactivation-date-input").value = date;
 
 document.getElementById('add-bracelet-form').addEventListener('submit', function(event) {
   event.preventDefault();

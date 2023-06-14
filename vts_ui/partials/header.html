@@ -23,6 +23,117 @@
     <div class="menu-item">
         <a href="{% url 'login_view' %}" onclick="logout()">Logout</a>
     </div>
+    <div id="google_translate_element" class="menu-item"></div>
+    <style type="text/css">
+    body {
+    top: 0 !important;
+    }
+
+    .goog-logo-link {
+        display: none !important;
+        height: 0;
+    }
+
+    .VIpgJd-ZVi9od-aZ2wEe-OiiCO, .VIpgJd-ZVi9od-aZ2wEe-OiiCO-ti6hGc {
+        display: none !important;
+        height: 0;
+    }
+
+    .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc {
+        display: none !important;
+        height: 0;
+    }
+
+    .VIpgJd-ZVi9od-aZ2wEe{
+        display: none !important;
+        height: 0;
+    }
+
+    .VIpgJd-ZVi9od-aZ2wEe-Jt5cK{
+        display: none !important;
+        height: 0;
+    }
+
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+        display: none !important;
+        height: 0;
+    }
+
+    .VIpgJd-ZVi9od-LgbsSe {
+        display: none !important;
+        height: 0;
+    }
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+        display: none !important;
+        height: 0;
+    }
+
+    .VIpgJd-ZVi9od-ORHb-OEVmcd {
+        display: none !important;
+        height: 0;
+    }
+
+    .goog-te-gadget {
+        color: transparent !important;
+        height: 0 !important;
+    }
+
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    .goog-te-banner-frame {
+        display: none !important;
+        height: 0 !important;
+    }
+
+    #goog-gt-tt,
+    .goog-te-balloon-frame {
+        display: none !important;
+        height: 0 !important;
+    }
+
+    .goog-text-highlight {
+        background: none !important;
+        box-shadow: none !important;
+        height: 0 !important;
+    }
+
+    .goog-tooltip {
+        display: none !important;
+    }
+    .goog-tooltip:hover {
+        display: none !important;
+    }
+
+    #google_translate_element select {
+        background: #ffffff;
+        color: #010216;
+        border: solid #010216 1px;
+        border-radius: 3px;
+        padding: 8px 8px;
+    }
+        .group-left {
+        margin-right: auto;
+    }
+
+    .group-right {
+        margin-left: auto;
+    }
+
+    </style>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript"
+            src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 </div>
 <script>
     function logout() {

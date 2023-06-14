@@ -44,3 +44,4 @@ class SafeCustomUserSerializer(serializers.Serializer):
     last_name = serializers.CharField(max_length=30)
     gender_id = serializers.PrimaryKeyRelatedField(queryset=Gender.objects.all(), allow_null=True, source='gender')
     age = serializers.IntegerField(allow_null=True)
+    organization_id = serializers.PrimaryKeyRelatedField(queryset=Organization.objects.all(), allow_null=True, source='organization')

@@ -19,3 +19,15 @@ def organization_rud(request, organization_id):
         return update_organization(organization_id, JSONParser().parse(request), request)
     elif request.method == 'DELETE':
        return delete_organization(organization_id, request)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])
+def organization_get_statistics(request, organization_id):
+    if request.method == 'GET':
+        return get_organization_statistics(organization_id, request)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated & IsAdminCustomUser & HasOrganization])
+def generate_report(request, organization_id):
+    if request.method == 'GET':
+        return generate_word_report(organization_id, request)
